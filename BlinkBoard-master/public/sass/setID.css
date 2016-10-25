@@ -1,0 +1,29 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto'; }
+  body #form,
+  html #form {
+    text-align: center;
+    width: 90%;
+    max-width: 28rem; }
+    body #form p,
+    html #form p {
+      font-size: 0.9rem;
+      text-align: center;
+      color: white;
+      background-color: #3F51B5;
+      padding: 0.5rem 1rem;
+      -webkit-border-radius: 1rem;
+      -moz-border-radius: 1rem;
+      -ms-border-radius: 1rem;
+      -o-border-radius: 1rem;
+      border-radius: 1rem;
+      text-shadow: 0 0 0.3rem rgba(100, 100, 100, 0.2);
+      border: 1px solid rgba(100, 100, 100, 0.3);
+      margin: 2rem 0; }
+  body a,
+  html a {
+    outline: none;
+    text-decoration: none; }

@@ -1,0 +1,58 @@
+{
+	"units": {
+		"placeholder": "undefined"
+	},
+	"users": {
+		"15b1571d-fbce-447c-9778-6234f1f4e729": {
+			"units": {
+				"placeholder": "undefined"
+			}
+		}
+	},
+	"viewerModels": {
+		"iframeviewer": {
+			"parameters": {
+				"url": "^(http).*//[a-z]+\\..*$",
+				"updatefrequency": "^[1-9]\\d{1,}$"
+			},
+			"placement": {
+				"x": "10",
+				"y": "10"
+			},
+			"size": {
+				"height": "400",
+				"width": "460"
+			}
+		},
+		"currencyviewer": {
+			"parameters": {
+				"from": "^[A-Z]{3}$",
+				"to": "^[A-Z]{3}$",
+				"updatefrequency": "^[1-9]\\d{1,}$"
+			},
+			"placement": {
+				"x": "10",
+				"y": "10"
+			},
+			"size": {
+				"height": "50",
+				"width": "460"
+			}
+		},
+		"rssviewer": {
+			"parameters": {
+				"stories": "^[1-9]*$",
+				"updatefrequency": "^[1-9]\\d{1,}$",
+				"url": "^(http).*//[a-z]+\\..*$"
+			},
+			"placement": {
+				"x": "10",
+				"y": "10"
+			},
+			"size": {
+				"height": "300",
+				"width": "460"
+			}
+		}
+	}
+}

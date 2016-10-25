@@ -1,0 +1,47 @@
+<md-dialog-content class="md-dialog-content input" ng-model="unit">
+	<h2>{{unit.name}}</h2>
+	<form name="unitSettingsForm" layout="column" ng-submit="save(unit)">
+		<md-input-container>
+			<label>Name</label>
+			<md-icon class="md-accent">label_outline</md-icon>
+			<input name="name" type="text" ng-required="true" placeholder="e.g. Desktop" ng-model="unit.name" minlength="1" />
+			<div ng-messages="unitSettingsForm.name.$error">
+				<div ng-message="required">Please fill out this field</div>
+				<div ng-message="minlength">Must be at least 1 character</div>
+			</div>
+		</md-input-container>
+		<md-input-container>
+			<label>Width</label>
+			<md-icon class="md-accent">settings</md-icon>
+			<input name="width" type="text" ng-required="true" placeholder="1920" ng-model="unit.size.width" minlength="1" />
+			<div ng-messages="unitSettingsForm.width.$error">
+				<div ng-message="required">Please fill out this field</div>
+				<div ng-message="minlength">Must be at least 1 character</div>
+			</div>
+		</md-input-container>
+		<md-input-container>
+			<label>Height</label>
+			<md-icon class="md-accent">settings</md-icon>
+			<input name="height" type="text" ng-required="true" placeholder="1080" ng-model="unit.size.height" minlength="1" />
+			<div ng-messages="unitSettingsForm.height.$error">
+				<div ng-message="required">Please fill out this field</div>
+				<div ng-message="minlength">Must be at least 1 character</div>
+			</div>
+		</md-input-container>
+		<md-input-container>
+			<label>Font Size</label>
+			<md-icon class="md-accent">settings</md-icon>
+			<input name="fontsize" type="text" ng-required="true" placeholder="20" ng-model="unit.fontsize" minlength="1" />
+			<div ng-messages="unitSettingsForm.fontsize.$error">
+				<div ng-message="required">Please fill out this field</div>
+				<div ng-message="minlength">Must be at least 1 character</div>
+			</div>
+		</md-input-container>
+		<div layout="row">
+			<button flex="no-grow" class="md-button md-warn" ng-click="delete()" type="button"> Delete </button>
+			<div flex></div>
+			<button flex="no-grow" class="md-button" ng-click="close()" type="button"> Close </button>
+			<button flex="no-grow" class="md-button md-accent md-raised" ng-disabled="!unitSettingsForm.$valid" type="submit"> Save </button>
+		</div>
+	</form>
+</md-dialog-content>

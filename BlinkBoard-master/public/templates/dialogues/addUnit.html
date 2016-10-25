@@ -1,0 +1,28 @@
+<md-dialog-content class="md-dialog-content input">
+	<h2>Add New Unit</h2>
+	<form name="addUnitForm" layout="column" ng-submit="save(unit.id, unit.name)">
+		<md-input-container>
+			<label>Unit ID</label>
+			<md-icon class="md-accent">vpn_key</md-icon>
+			<input name="id" type="text" ng-required="true" placeholder="e.g. 397CDDB6-F693-4858-AD79-852D2EE43CEB" ng-model="unit.id" ng-pattern="/^\w{8}-\w{4}-\w{4}-\w{4}-\w{12}$/" />
+			<div ng-messages="addUnitForm.id.$error">
+				<div ng-message="required">Please fill out this field</div>
+				<div ng-message="pattern">Must match e.g. 397CDDB6-F693-4858-AD79-852D2EE43CEB</div>
+			</div>
+		</md-input-container>
+		<md-input-container>
+			<label>Name</label>
+			<md-icon class="md-accent">label_outline</md-icon>
+			<input name="name" type="text" ng-required="true" placeholder="e.g. Desktop" ng-model="unit.name" minlength="1" />
+			<div ng-messages="addUnitForm.name.$error">
+				<div ng-message="required">Please fill out this field</div>
+				<div ng-message="minlength">Must be at least 1 character</div>
+			</div>
+		</md-input-container>
+		<div layout="row">
+			<div flex></div>
+			<button flex="no-grow" class="md-button" ng-click="close()" type="button"> Close </button>
+			<button flex="no-grow" class="md-button md-accent md-raised" ng-disabled="!addUnitForm.$valid" type="submit"> Save </button>
+		</div>
+	</form>
+</md-dialog-content>

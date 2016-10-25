@@ -1,0 +1,11 @@
+<div class="viewer" ng-style="{overflow: 'hidden', width: data.size.width + 'px', height: data.size.height + 'px', left: data.placement.x + 'px', top: data.placement.y + 'px'}">
+	<div class="fadein fadeout" ng-class="{'text-fade': rssDataChanged.changed === true}">
+		<div class="story" ng-repeat="story in rssData.value track by $index">
+			<div class="published font-caption">
+				<div>{{story.published.timeAgo}}</div>
+				<div>{{story.published.time}}</div>
+			</div>
+			<div class="font-body-1">{{story.title}}</div>
+		</div>
+	</div>
+</div>

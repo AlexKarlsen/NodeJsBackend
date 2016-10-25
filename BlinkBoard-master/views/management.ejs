@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>BlinkBoard</title>
+		<!-- Web App tags -->
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<!--<link rel="apple-touch-icon" href="/images/icon.png" />-->
+		<!-- External ressources -->
+		<link rel="stylesheet" href="/bower_components/normalize-css/normalize.css"/>
+		<link rel="stylesheet" href="/bower_components/roboto-fontface/css/roboto/roboto-fontface.css"/>
+		<link rel="stylesheet" href="/bower_components/material-design-icons/iconfont/material-icons.css"/>
+		<link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css"/>
+		<script src="/bower_components/angular/angular.min.js"></script>
+		<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+		<script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+		<script src="/bower_components/angular-material/angular-material.min.js"></script>
+		<script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
+		<script src="/bower_components/firebase/firebase.js"></script>
+		<!-- Stuff I've written -->
+		<link rel="stylesheet" href="sass/management.css" type="text/css"/>
+		<script src="javascripts/management.js"></script>
+		<!-- environment -->
+		<script>
+			var env = {
+				FIREBASE_APIKEY: '<%= process.env.FIREBASE_APIKEY %>',
+				FIREBASE_AUTHDOMAIN: '<%= process.env.FIREBASE_AUTHDOMAIN %>',
+				FIREBASE_DATABASEURL: '<%= process.env.FIREBASE_DATABASEURL %>'
+			}
+		</script>
+	</head>
+
+	<body>
+		<md-content id="management" ng-app="bbManagement" ng-controller="ManagementController" ng-cloak>
+			<!-- Spinner -->
+			<div id="spinner" layout="row" layout-align="center center" ng-if="loading">
+				<md-progress-circular md-mode="indeterminate" md-diameter="80px"></md-progress-circular>
+			</div>
+			<!-- Toolbar -->
+			<div id="statusbar-spacer"></div>
+			<md-toolbar class="md-toolbar-tools">
+				<div style="width: 40px;">
+					<button class="md-icon-button md-button" type="button" ng-hide="$state.current.name === 'login' || $state.current.name === 'dashboard'" ng-click="$state.go('^')">
+						<md-icon md-font-icon="material-icons">arrow_back</md-icon>
+					</button>
+				</div>
+				<div flex></div>
+				<div>{{title}}</div>
+				<div flex></div>
+				<div style="width: 40px;">
+					<md-menu-bar ng-hide="$state.current.name === 'login'">
+						<md-menu>
+							<button class="md-icon-button md-button" type="button" ng-click="$mdOpenMenu()">
+								<md-icon md-font-icon="material-icons">more_vert</md-icon>
+							</button>
+							<md-menu-content>
+								<md-menu-item>
+									<button class="md-button md-warn" ng-click="logout()">
+										Logout
+									</button>
+								</md-menu-item>
+							</md-menu-content>
+						</md-menu>
+					</md-menu-bar>
+				</div>
+			</md-toolbar>
+			<!-- Content -->
+			<div id="view" ui-view></div>
+		</md-content>
+	</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+	"name": "BlinkBoard",
+	"author": "Mathias Løkke Madsen",
+	"license": "CC-BY-NC-4.0",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components"
+	],
+	"dependencies": {
+		"normalize-css": "normalize.css#~3.0.3",
+		"angular": "~1.5.7",
+		"angular-sanitize": "~1.5.7",
+		"moment": "~2.14.1",
+		"roboto-fontface": "~0.5.0",
+		"angular-material": "~1.0.6",
+		"material-design-icons": "~2.2.1",
+		"angular-ui-router": "~0.3.1",
+		"angularfire": "~2.0.1",
+		"flag-icon-css": "~2.3.0"
+	}
+}

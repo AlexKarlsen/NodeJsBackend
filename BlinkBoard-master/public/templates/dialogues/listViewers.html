@@ -1,0 +1,11 @@
+<md-dialog-content class="md-dialog-content">
+	<h2>List of Viewers</h2>
+	<md-list>
+		<md-list-item class="md-1-line" ng-repeat="(key, viewer) in unit.viewers">
+			<p>{{viewer.configuration.name}}</p>
+			<button class="md-button md-secondary md-accent" ng-click="goToViewer(key)"> Manage
+				<md-icon style="font-size: 1.3rem; margin: -0.15rem 0 0 0.1rem;">settings</md-icon>
+			</button>
+		</md-list-item>
+	</md-list>
+</md-dialog-content>

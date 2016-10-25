@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="bbSetID" ng-controller="SetIDController">
+
+	<head>
+		<title>Set Unit ID</title>
+		<!-- external ressources -->
+		<link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+		<link rel="stylesheet" href="/bower_components/roboto-fontface/css/roboto/roboto-fontface.css">
+		<link rel="stylesheet" href="/bower_components/material-design-icons/iconfont/material-icons.css">
+		<link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+		<script src="/bower_components/angular/angular.min.js"></script>
+		<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+		<script src="/bower_components/angular-aria/angular-aria.min.js"></script>
+		<script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+		<script src="/bower_components/angular-material/angular-material.min.js"></script>
+		<!-- unit -->
+		<link rel="stylesheet" href="sass/setID.css" type="text/css">
+		<script src="javascripts/setID.js"></script>
+	</head>
+
+	<body layout="row" layout-align="center center">
+		<md-content id="form">
+			<p ng-if="currentID">Current ID:
+				<b>{{currentID}}</b>
+			</p>
+			<button class="md-button md-warn" style="width: 14rem;" ng-click="newID()">
+				Generate and save new ID
+				<md-tooltip md-direction="bottom" hide-xs>
+					Warning! This action is irreversible
+				</md-tooltip>
+			</button>
+		</md-content>
+	</body>
+
+</html>

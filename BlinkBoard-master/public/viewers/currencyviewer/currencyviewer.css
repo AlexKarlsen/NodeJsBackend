@@ -1,0 +1,25 @@
+currencyviewer {
+  justify-content: space-around;
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+  display: inline-block; }
+  currencyviewer .from {
+    display: inline-block;
+    margin-right: 0.5rem; }
+  currencyviewer .to {
+    display: inline-block;
+    margin-left: 0.5rem; }
+  currencyviewer .rate {
+    display: inline-block;
+    position: relative;
+    top: 3px; }
+  currencyviewer .flag-icon {
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
+    border-radius: 0.8rem;
+    font-size: 1.6rem;
+    position: relative;
+    top: 0; }

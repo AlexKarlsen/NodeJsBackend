@@ -1,0 +1,71 @@
+@mixin column-count($count) {
+	-webkit-column-count: $count;
+	-moz-column-count: $count;
+	-ms-column-count: $count;
+	-o-column-count: $count;
+	column-count: $count;
+}
+
+@mixin transition($value) {
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	-ms-transition: $value;
+	-o-transition: $value;
+	transition: $value;
+}
+
+@mixin transform($value) {
+	-webkit-transform: $value;
+	-moz-transform: $value;
+	-ms-transform: $value;
+	-o-transform: $value;
+	transform: $value;
+}
+
+@mixin overflow-scrolling($value) {
+	-webkit-overflow-scrolling: $value;
+	-moz-overflow-scrolling: $value;
+	-ms-overflow-scrolling: $value;
+	-o-overflow-scrolling: $value;
+	overflow-scrolling: $value;
+}
+
+@mixin filter($value) {
+	-webkit-filter: $value;
+	-moz-filter: $value;
+	-ms-filter: $value;
+	-o-filter: $value;
+	filter: $value;
+}
+
+@mixin background($value) {
+	-webkit-background: $value;
+	-moz-background: $value;
+	-ms-background: $value;
+	-o-background: $value;
+	background: $value;
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin overflow-x($value) {
+	-webkit-overflow-x: $value;
+	-moz-overflow-x: $value;
+	-ms-overflow-x: $value;
+	-o-overflow-x: $value;
+	overflow-x: $value;
+}
+
+@mixin animation($value) {
+	-webkit-animation: $value;
+	-moz-animation: $value;
+	-ms-animation: $value;
+	-o-animation: $value;
+	animation: $value;
+}

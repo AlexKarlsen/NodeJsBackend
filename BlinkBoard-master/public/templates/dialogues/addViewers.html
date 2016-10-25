@@ -1,0 +1,55 @@
+<md-dialog-content class="md-dialog-content input" ng-model="viewersData">
+	<!-- Step 1 -->
+	<div ng-if="viewersData.state === 'configureViewer'">
+		<h2><span class="grey">Step 1:</span> Configure Viewer</h2>
+		<form name="addViewerForm" layout="column" ng-submit="viewersData.state = 'selectUnits'">
+			<md-input-container>
+				<label>Type</label>
+				<md-icon class="md-accent">insert_chart</md-icon>
+				<md-select name="type" ng-required="true" ng-model="viewersData.viewerData.type">
+					<md-option ng-repeat="(type, viewerModel) in viewerModels" ng-value="type"> {{type}} </md-option>
+				</md-select>
+				<div class="md-errors-spacer"></div>
+			</md-input-container>
+			<md-input-container ng-if="viewersData.viewerData.type">
+				<label>Name</label>
+				<md-icon class="md-accent">label_outline</md-icon>
+				<input name="name" ng-required="true" placeholder="e.g. Apple Stock" ng-model="viewersData.viewerData.configuration.name" />
+				<div ng-messages="addViewerForm.name.$error">
+					<div ng-message="required">Please fill out this field</div>
+				</div>
+			</md-input-container>
+			<md-input-container ng-repeat="(parameter, value) in viewerModels[viewersData.viewerData.type].parameters">
+				<label>{{parameter}}</label>
+				<md-icon class="md-accent">settings</md-icon>
+				<input name="{{parameter}}" ng-required="true" ng-pattern="viewerModels[viewersData.viewerData.type].parameters[parameter]" ng-model="viewersData.viewerData.configuration[parameter]" />
+				<div ng-messages="addViewerForm[parameter].$error">
+					<div ng-message="required">Please fill out this field</div>
+					<div ng-message="pattern">Input format is invalid</div>
+				</div>
+			</md-input-container>
+			<div layout="row">
+				<div flex></div>
+				<button flex="no-grow" class="md-button" ng-click="close()" type="button"> Close </button>
+				<button flex="no-grow" class="md-button md-accent md-raised" ng-disabled="!addViewerForm.$valid" type="submit"> Next </button>
+			</div>
+		</form>
+	</div>
+	<!-- Step 2 -->
+	<div ng-if="viewersData.state === 'selectUnits'">
+		<h2><span class="grey">Step 2:</span> Select Units</h2>
+		<form name="selectUnitsForm" layout="column" ng-submit="save(viewersData)">
+			<md-list>
+				<md-list-item ng-repeat="(unitID, unit) in units">
+					<p>{{unit.name}}</p>
+					<md-checkbox class="md-secondary" ng-model="viewersData.selectedUnits[unitID]"></md-checkbox>
+				</md-list-item>
+			</md-list>
+			<div layout="row">
+				<div flex></div>
+				<button flex="no-grow" class="md-button" ng-click="close()" type="button"> Close </button>
+				<button flex="no-grow" class="md-button md-accent md-raised" type="submit"> Save </button>
+			</div>
+		</form>
+	</div>
+</md-dialog-content>

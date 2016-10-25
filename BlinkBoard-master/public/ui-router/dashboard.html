@@ -1,0 +1,34 @@
+<md-list>
+	<md-list-item class="md-3-line" ng-repeat="(unitID, unit) in units">
+		<div class="md-list-item-text">
+			<h3>{{unit.name}}</h3>
+			<p ng-if="!unit.viewers">0 viewers</p>
+			<p ng-repeat="viewer in unit.viewers"> <span ng-if="$last">{{$index + 1}} viewer<span ng-if="$index == 1"></span><span ng-if="$index > 0">s</span></span>
+			</p>
+		</div>
+		<button class="md-button md-secondary md-accent" ng-click="$state.go('dashboard.unit', { unitID: unitID })"> Manage
+			<md-tooltip md-direction="left" hide-xs> Manage {{unit.name}} </md-tooltip>
+		</button>
+		<md-divider></md-divider>
+	</md-list-item>
+</md-list>
+<div layout="row" layout-align="end start">
+	<md-fab-speed-dial md-direction="up" class="md-scale">
+		<md-fab-trigger>
+			<button class="md-button md-fab md-primary">
+				<md-icon class="name button-icon material-icons">menu</md-icon>
+				<md-tooltip md-direction="left" hide-xs> Dashboard Menu </md-tooltip>
+			</button>
+		</md-fab-trigger>
+		<md-fab-actions>
+			<button class="md-button md-fab md-raised md-mini md-accent" ng-click="addViewers()">
+				<md-icon class="name button-icon material-icons">add_box</md-icon>
+				<md-tooltip md-direction="left" hide-xs> Add new viewer to multiple units </md-tooltip>
+			</button>
+			<button class="md-button md-fab md-raised md-mini md-accent" ng-click="addUnit()">
+				<md-icon class="name button-icon material-icons">add</md-icon>
+				<md-tooltip md-direction="left" hide-xs> Add New Unit </md-tooltip>
+			</button>
+		</md-fab-actions>
+	</md-fab-speed-dial>
+</div>

@@ -1,0 +1,25 @@
+<md-content id="login" layout-margin>
+	<form name="loginForm" class="input" layout="column" ng-submit="login(email, password)">
+		<md-input-container>
+			<label>Email</label>
+			<md-icon class="md-accent">mail_outline</md-icon>
+			<input name="email" type="email" ng-required="true" ng-model="email" ng-pattern="/^.+@.+\..+$/" />
+			<div ng-messages="loginForm.email.$error">
+				<div ng-message="required">Please fill out this field</div>
+				<div ng-message="pattern">Email format is incorrect</div>
+			</div>
+		</md-input-container>
+		<md-input-container>
+			<label>Password</label>
+			<md-icon class="md-accent">lock_outline</md-icon>
+			<input name="password" type="password" ng-required="true" ng-model="password" />
+			<div ng-messages="loginForm.password.$error">
+				<div ng-message="required">Please fill out this field</div>
+			</div>
+		</md-input-container>
+		<div layout="row">
+			<div flex></div>
+			<button class="md-button md-accent md-raised" ng-disabled="!loginForm.$valid" type="submit"> Login </button>
+		</div>
+	</form>
+</md-content>

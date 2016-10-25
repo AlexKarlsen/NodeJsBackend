@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="bbUnit" ng-controller="UnitController" style="font-size: {{unit.fontsize}}px;">
+
+	<head>
+		<title>Unit</title>
+		<!-- Web App tags -->
+		<meta name="viewport" content="width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<!-- external ressources -->
+		<link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+		<link rel="stylesheet" href="/bower_components/roboto-fontface/css/roboto/roboto-fontface.css">
+		<link rel="stylesheet" href="/bower_components/flag-icon-css/css/flag-icon.min.css">
+		<script src="/bower_components/angular/angular.min.js"></script>
+		<script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
+		<script src="/bower_components/firebase/firebase.js"></script>
+		<script src="/bower_components/moment/min/moment.min.js"></script>
+		<!-- unit -->
+		<link rel="stylesheet" href="sass/unit.css" type="text/css">
+		<script src="javascripts/unit.js"></script>
+		<!-- stockviewer -->
+		<% for (var i = viewerTypes.length - 1; i >= 0; i--) { %>
+			<link rel="stylesheet" href="viewers/<%= viewerTypes[i] %>/<%= viewerTypes[i] %>.css" type="text/css">
+			<script src="viewers/<%= viewerTypes[i] %>/<%= viewerTypes[i] %>.js"></script>
+		<% } %>
+		<!-- environment -->
+		<script>
+			var env = {
+				FIREBASE_APIKEY: '<%= process.env.FIREBASE_APIKEY %>',
+				FIREBASE_AUTHDOMAIN: '<%= process.env.FIREBASE_AUTHDOMAIN %>',
+				FIREBASE_DATABASEURL: '<%= process.env.FIREBASE_DATABASEURL %>'
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="unit">
+			<viewer ng-repeat="viewer in unit.viewers" data="viewer" ng-cloak></viewer>
+		</div>
+	</body>
+
+</html>

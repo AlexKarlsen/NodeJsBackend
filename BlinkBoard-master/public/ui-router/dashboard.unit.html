@@ -1,0 +1,44 @@
+<div id="unit" layout-margin>
+	<div class="header" layout="row" layout-align="space-between start">
+		<div layout="column" layout-align="center start">
+			<h2>{{units[$state.params.unitID].name}}</h2>
+			<h3 class="grey">{{$state.params.unitID}}</h3>
+			<md-chips>
+				<md-chip>Width: <b>{{units[$state.params.unitID].size.width}}px</b></md-chip>
+				<md-chip>Height: <b>{{units[$state.params.unitID].size.height}}px</b></md-chip>
+				<md-chip>Font Size: <b>{{units[$state.params.unitID].fontsize}}px</b></md-chip>
+			</md-chips>
+		</div>
+	</div>
+	<div id="grid" ng-style="{paddingBottom: 100 * (units[$state.params.unitID].size.height / units[$state.params.unitID].size.width) + '%'}">
+		<div class="viewer md-whiteframe-1dp" layout="column" layout-align="center center" ng-style="{zIndex: {{200 + $index}}, width: (100 / units[$state.params.unitID].size.width) * viewer.size.width + '%', height: (100 / units[$state.params.unitID].size.height) * viewer.size.height + '%', top: viewer.placement.y * (100 / units[$state.params.unitID].size.height) + '%', left: viewer.placement.x * (100 / units[$state.params.unitID].size.width) + '%'}"
+						ng-repeat="(key, viewer) in units[$state.params.unitID].viewers track by $index">
+			<button class="md-button md-accent" ng-click="viewerSettings(key)"> {{viewer.configuration.name}}
+				<md-icon style="font-size: 1.3rem; margin: -0.15rem 0 0 0.1rem;">settings</md-icon>
+				<md-tooltip md-direction="right" hide-xs> Viewer Settings </md-tooltip>
+			</button>
+		</div>
+	</div>
+</div>
+<md-fab-speed-dial md-direction="up" class="md-scale">
+	<md-fab-trigger>
+		<button class="md-button md-fab md-primary">
+			<md-icon class="name button-icon material-icons">menu</md-icon>
+			<md-tooltip md-direction="left" hide-xs> Unit Menu </md-tooltip>
+		</button>
+	</md-fab-trigger>
+	<md-fab-actions>
+		<button class="md-button md-fab md-raised md-mini md-accent" ng-click="unitSettings()">
+			<md-icon class="name button-icon material-icons">settings</md-icon>
+			<md-tooltip md-direction="left" hide-xs> Unit Settings </md-tooltip>
+		</button>
+		<button class="md-button md-fab md-raised md-mini md-accent" ng-click="listViewers()">
+			<md-icon class="name button-icon material-icons">list</md-icon>
+			<md-tooltip md-direction="left" hide-xs> List of Viewers </md-tooltip>
+		</button>
+		<button class="md-button md-fab md-raised md-mini md-accent" ng-click="addViewer()">
+			<md-icon class="name button-icon material-icons">add_box</md-icon>
+			<md-tooltip md-direction="left" hide-xs> Add New Viewer </md-tooltip>
+		</button>
+	</md-fab-actions>
+</md-fab-speed-dial>

@@ -1,0 +1,32 @@
+@import "mixins";
+
+currencyviewer {
+	justify-content: space-around;
+	display: flex;
+	flex-flow: column wrap;
+	text-align: center;
+	display: inline-block;
+
+	.from {
+		display: inline-block;
+		margin-right: 0.5rem;
+	}
+
+	.to {
+		display: inline-block;
+		margin-left: 0.5rem;
+	}
+
+	.rate {
+		display: inline-block;
+		position: relative;
+		top: 3px;
+	}
+
+	.flag-icon {
+		@include border-radius(0.8rem);
+		font-size: 1.6rem;
+		position: relative;
+		top: 0;
+	}
+}

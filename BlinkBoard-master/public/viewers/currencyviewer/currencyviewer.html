@@ -1,0 +1,5 @@
+<div class="viewer" ng-style="{overflow: 'hidden', width: data.size.width + 'px', height: data.size.height + 'px', left: data.placement.x + 'px', top: data.placement.y + 'px'}">
+	<div class="from font-body-1 fadein fadeout" ng-class="{'text-fade': currencyDataChanged['from'].changed === true}"> {{currencyData['from'].value}} <span class="flag-icon flag-icon-squared flag-icon-{{currencyData['fromflag'].value}}"></span> </div>
+	<div class="rate font-title fadein fadeout" ng-class="{'text-fade': currencyDataChanged['rate'].changed === true}"> {{currencyData['rate'].value}} </div>
+	<div class="to font-body-1 fadein fadeout" ng-class="{'text-fade': currencyDataChanged['to'].changed === true}"> <span class="flag-icon flag-icon-squared flag-icon-{{currencyData['toflag'].value}}"></span> {{currencyData['to'].value}} </div>
+</div>

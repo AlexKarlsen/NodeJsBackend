@@ -1,0 +1,171 @@
+@import "mixins";
+
+/*=============================================>>>>>
+= Z-Index overview =
+===============================================>>>>>*/
+$zIndexToolbar: 2; // md-scroll-mask: 50
+// md-scroll-mask-bar: 65
+// Viewers (set in the DOM): 200-249
+$zIndexMdFab: 250;
+$zIndexMdFabActionItem: 252;
+$zIndexMdDialogBackdrop: 260;
+$zIndexDialogueContainer: 300;
+$zIndexSelectMenuContainer: 301;
+$zIndexMdTooltip: 309;
+$zIndexSpinner: 310;
+
+/*=============================================>>>>>
+= Colors =
+===============================================>>>>>*/
+$primary: #212121;
+$accent: #3F51B5;
+$warn: #BF360C;
+$grey: rgba(100, 100, 100, 0.5);
+$lightGrey: rgba(100, 100, 100, 0.1);
+
+/*=============================================>>>>>
+= Styles =
+===============================================>>>>>*/
+/*----------  Global tweaks to Angular Material  ----------*/
+.md-fab-action-item {
+	z-index: $zIndexMdFabActionItem;
+}
+
+md-fab-speed-dial {
+	z-index: $zIndexMdFab;
+	position: fixed;
+	bottom: 2.5vw;
+	right: 2.5vw;
+}
+
+md-tooltip {
+	z-index: $zIndexMdTooltip;
+}
+
+md-backdrop.md-dialog-backdrop,
+md-dialog {
+	z-index: $zIndexMdDialogBackdrop;
+}
+
+md-list {
+	padding: 0;
+}
+
+.md-dialog-container {
+	z-index: $zIndexDialogueContainer;
+
+	md-dialog {
+		width: 95%;
+		max-width: 24rem;
+	}
+}
+
+.md-select-menu-container {
+	z-index: $zIndexSelectMenuContainer;
+}
+/*----------  Tiny addon classes  ----------*/
+.grey {
+	color: $grey;
+}
+
+#management {
+	min-height: 100vh; // Sort of hack (related to $mdDialog issue)
+	/*----------  Angular Animate  ----------*/
+	.ng-enter {
+		@include transition(0.5s ease-in-out);
+		opacity: 0;
+	}
+
+	.ng-enter-active {
+		opacity: 1;
+	}
+
+	.ng-leave {
+		opacity: 1;
+	}
+
+	.ng-leave-active {
+		opacity: 0;
+	}
+	/*----------  Toolbar  ----------*/
+	#statusbar-spacer {
+		height: 1rem;
+		position: relative;
+		z-index: $zIndexToolbar;
+		background-color: $primary;
+	}
+
+	.md-toolbar-tools {
+		padding: 0 1rem 0 0.3rem; // Fixing the spacing for the specific icons, I'm using
+	}
+
+	md-menu-bar {
+		padding: 0;
+	}
+	/*----------  Spinner  ----------*/
+	#spinner {
+		background-color: rgba(255, 255, 255, 0.8);
+		width: 100vw;
+		height: 100vh;
+		z-index: $zIndexSpinner;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+	/*----------  All views  ----------*/
+	#view {
+		margin: auto;
+		width: 100%;
+		max-width: 80rem;
+
+		#login {
+			margin: 3rem auto auto;
+			width: 90%;
+			max-width: 24rem;
+		}
+		/*----------  'dashboard.unit' state  ----------*/
+		#unit {
+			.header {
+				h3 {
+					font-size: 1rem;
+					margin-top: 0;
+					margin-bottom: 0.5rem;
+				}
+
+				h2 {
+					margin-top: 0.5rem;
+					margin-bottom: 0.5rem;
+				}
+
+				.buttons {
+					height: 100%;
+				}
+			}
+
+			.md-chip {
+				background-color: $primary;
+				color: white;
+			}
+
+			$gridFontSize: 0.9rem;
+
+			#grid {
+				font-weight: bold;
+				position: relative;
+				height: 0;
+				font-size: $gridFontSize;
+				margin-bottom: 1rem;
+				background-color: $lightGrey;
+
+				.viewer {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 100%;
+					position: absolute;
+					background-color: white;
+				}
+			}
+		}
+	}
+}

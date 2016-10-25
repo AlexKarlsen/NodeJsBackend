@@ -1,0 +1,113 @@
+/*=============================================>>>>>
+= Z-Index overview =
+===============================================>>>>>*/
+/*=============================================>>>>>
+= Colors =
+===============================================>>>>>*/
+/*=============================================>>>>>
+= Styles =
+===============================================>>>>>*/
+/*----------  Global tweaks to Angular Material  ----------*/
+.md-fab-action-item {
+  z-index: 252; }
+
+md-fab-speed-dial {
+  z-index: 250;
+  position: fixed;
+  bottom: 2.5vw;
+  right: 2.5vw; }
+
+md-tooltip {
+  z-index: 309; }
+
+md-backdrop.md-dialog-backdrop,
+md-dialog {
+  z-index: 260; }
+
+md-list {
+  padding: 0; }
+
+.md-dialog-container {
+  z-index: 300; }
+  .md-dialog-container md-dialog {
+    width: 95%;
+    max-width: 24rem; }
+
+.md-select-menu-container {
+  z-index: 301; }
+
+/*----------  Tiny addon classes  ----------*/
+.grey {
+  color: rgba(100, 100, 100, 0.5); }
+
+#management {
+  min-height: 100vh;
+  /*----------  Angular Animate  ----------*/
+  /*----------  Toolbar  ----------*/
+  /*----------  Spinner  ----------*/
+  /*----------  All views  ----------*/ }
+  #management .ng-enter {
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -ms-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    opacity: 0; }
+  #management .ng-enter-active {
+    opacity: 1; }
+  #management .ng-leave {
+    opacity: 1; }
+  #management .ng-leave-active {
+    opacity: 0; }
+  #management #statusbar-spacer {
+    height: 1rem;
+    position: relative;
+    z-index: 2;
+    background-color: #212121; }
+  #management .md-toolbar-tools {
+    padding: 0 1rem 0 0.3rem; }
+  #management md-menu-bar {
+    padding: 0; }
+  #management #spinner {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100vw;
+    height: 100vh;
+    z-index: 310;
+    position: fixed;
+    top: 0;
+    left: 0; }
+  #management #view {
+    margin: auto;
+    width: 100%;
+    max-width: 80rem;
+    /*----------  'dashboard.unit' state  ----------*/ }
+    #management #view #login {
+      margin: 3rem auto auto;
+      width: 90%;
+      max-width: 24rem; }
+    #management #view #unit .header h3 {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem; }
+    #management #view #unit .header h2 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem; }
+    #management #view #unit .header .buttons {
+      height: 100%; }
+    #management #view #unit .md-chip {
+      background-color: #212121;
+      color: white; }
+    #management #view #unit #grid {
+      font-weight: bold;
+      position: relative;
+      height: 0;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      background-color: rgba(100, 100, 100, 0.1); }
+      #management #view #unit #grid .viewer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+        background-color: white; }

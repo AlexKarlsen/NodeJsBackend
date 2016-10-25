@@ -1,0 +1,25 @@
+{
+	"rules": {
+		"users": {
+			"$uid": {
+				".write": "auth !== null && auth.uid === $uid",
+				".read": "auth !== null && auth.uid === $uid",
+				"units": {
+					"$unitID": {
+						".validate": "$unitID.matches(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/)"
+					}
+				}
+			}
+		},
+		"units": {
+			"$unitID": {
+				".write": "auth !== null && root.child('users').child(auth.uid).child('units').child($unitID).exists()",
+				".read": true,
+				".validate": "$unitID.matches(/\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}/) && newData.child('name').isString() && newData.child('name').val().length > 0"
+			}
+		},
+		"viewerModels": {
+			".read": true
+		}
+	}
+}

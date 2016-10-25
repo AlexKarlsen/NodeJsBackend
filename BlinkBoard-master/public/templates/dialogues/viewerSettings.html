@@ -1,0 +1,22 @@
+<md-dialog-content class="md-dialog-content input" ng-model="viewer">
+	<h2>{{viewer.configuration.name}} <span class="grey">{{viewer.type}}</span></h2>
+	<form name="viewerSettingsForm" layout="column" ng-submit="save(viewer)">
+		<div ng-repeat="(category, parameters) in viewer" layout="column" ng-if="category != 'type'">
+			<md-input-container ng-repeat="(parameter, value) in parameters" ng-if="category != 'name'">
+				<label>{{parameter}}</label>
+				<md-icon class="md-accent">settings</md-icon>
+				<input name="{{parameter}}" ng-value="viewer[category][parameter]" ng-model="viewer[category][parameter]" ng-required="true" ng-pattern="viewerModels[viewer.type].parameters[parameter]" />
+				<div ng-messages="viewerSettingsForm[parameter].$error">
+					<div ng-message="required">Please fill out this field</div>
+					<div ng-message="pattern">Input format is invalid</div>
+				</div>
+			</md-input-container>
+		</div>
+		<div layout="row">
+			<button flex="no-grow" class="md-button md-warn" ng-click="delete()" type="button"> Delete </button>
+			<div flex></div>
+			<button flex="no-grow" class="md-button" ng-click="close()" type="button"> Close </button>
+			<button flex="no-grow" class="md-button md-accent md-raised" ng-disabled="!viewerSettingsForm.$valid" type="submit"> Save </button>
+		</div>
+	</form>
+</md-dialog-content>

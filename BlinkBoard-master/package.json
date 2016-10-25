@@ -1,0 +1,35 @@
+{
+	"name": "BlinkBoard",
+	"author": "Mathias Løkke Madsen",
+	"license": "CC-BY-NC-4.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mathiaslm89/BlinkBoard.git"
+	},
+	"main": "blinkboard.js",
+	"scripts": {
+		"postinstall": "node_modules\\bower\\bin\\bower install",
+		"start": "node.exe blinkboard"
+	},
+	"dependencies": {
+		"body-parser": "~1.15.2",
+		"bower": "~1.7.9",
+		"debug": "~2.2.0",
+		"dotenv": "~2.0.0",
+		"ejs": "~2.4.2",
+		"exec": "~0.2.1",
+		"express": "~4.14.0",
+		"feed-read": "~0.0.1",
+		"later": "~1.2.0",
+		"lodash": "~4.13.1",
+		"node-schedule": "~1.1.0",
+		"node-uuid": "~1.4.7",
+		"request": "~2.73.0"
+	},
+	"devDependencies": {
+		"gulp": "~3.9.1",
+		"gulp-nodemon": "~2.1.0",
+		"browser-sync": "*",
+		"gulp-sass": "~2.3.1"
+	}
+}

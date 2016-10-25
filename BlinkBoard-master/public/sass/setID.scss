@@ -1,0 +1,31 @@
+@import "mixins";
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto';
+
+	#form {
+		text-align: center;
+		width: 90%;
+		max-width: 28rem;
+
+		p {
+			font-size: 0.9rem;
+			text-align: center;
+			color: white;
+			background-color: #3F51B5;
+			padding: 0.5rem 1rem;
+			@include border-radius(1rem);
+			text-shadow: 0 0 0.3rem rgba(100, 100, 100, 0.2);
+			border: 1px solid rgba(100, 100, 100, 0.3);
+			margin: 2rem 0;
+		}
+	}
+
+	a {
+		outline: none;
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,70 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: 'Roboto'; }
+
+a {
+  outline: none;
+  text-decoration: none; }
+
+#unit {
+  color: #ebebeb;
+  position: relative; }
+  #unit .viewer {
+    position: absolute;
+    font-weight: 100;
+    /*=============================================>>>>>
+		= Material Design font styles =
+		===============================================>>>>>*/ }
+    #unit .viewer .text-fade {
+      animation: fade 5s;
+      animation-timing-function: ease-in-out; }
+    #unit .viewer .font-headline {
+      font-size: 2.4rem;
+      font-weight: 500; }
+    #unit .viewer .font-title {
+      font-size: 2rem;
+      font-weight: 700; }
+    #unit .viewer .font-subheading {
+      font-size: 1.6rem;
+      font-weight: 500; }
+    #unit .viewer .font-body-2 {
+      font-size: 1.4rem;
+      font-weight: 700; }
+    #unit .viewer .font-body-1 {
+      font-size: 1.4rem;
+      font-weight: 500; }
+    #unit .viewer .font-caption {
+      font-size: 1.2rem;
+      font-weight: 500; }
+
+/** Keyframes **/
+@keyframes pixelShift {
+  from {
+    -webkit-transform: rotate(0deg) translateX(1.5vw) rotate(0deg);
+    -moz-transform: rotate(0deg) translateX(1.5vw) rotate(0deg);
+    -ms-transform: rotate(0deg) translateX(1.5vw) rotate(0deg);
+    -o-transform: rotate(0deg) translateX(1.5vw) rotate(0deg);
+    transform: rotate(0deg) translateX(1.5vw) rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg) translateX(1.5vw) rotate(-360deg);
+    -moz-transform: rotate(360deg) translateX(1.5vw) rotate(-360deg);
+    -ms-transform: rotate(360deg) translateX(1.5vw) rotate(-360deg);
+    -o-transform: rotate(360deg) translateX(1.5vw) rotate(-360deg);
+    transform: rotate(360deg) translateX(1.5vw) rotate(-360deg); } }
+
+@keyframes fade {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+50% {
+  opacity: 0; }
+
+100% {
+  opacity: 1; }
